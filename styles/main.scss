@@ -1,8 +1,16 @@
-.customClassFromFile {
-  color: blue;
+// @import './shared/fonts';
+@import '/index';
+
+html,body {
+  height:100%;
+  width:100%;
+  font-family: 'Helvetica';
 }
 
-
-.fromPage {
-  font-size: 50px;
+.self-typed{
+  font-size: 30px;
+  font-weight: bold;
+  font-style: italic;
+  letter-spacing: 2px;
+  color: white;
 }
