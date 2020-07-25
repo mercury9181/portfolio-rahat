@@ -1,5 +1,11 @@
 // @import './shared/fonts';
-@import '/index';
+
+// .................pages................
+@import './index';
+
+
+//.................. Components ....................
+@import './header';
 
 html,body {
   height:100%;
@@ -13,4 +19,12 @@ html,body {
   font-style: italic;
   letter-spacing: 2px;
   color: white;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.base-page{
+  padding-top: 100px;
 }

@@ -11,9 +11,9 @@
 //     return (
 //       <React.Fragment>
 //
-//         <Link href="/">
-//           <a style={{'fontSize': '20px'}}> Home </a>
-//         </Link>
+        // <Link href="/">
+        //   <a style={{'fontSize': '20px'}}> Home </a>
+        // </Link>
 //
 //         <Link href="/about">
 //           <a> About </a>
@@ -52,7 +52,21 @@
 
 
 
+
+
 import React, { useState } from 'react';
+import Link from 'next/link';
+
+
+const BsNavLink =(props) =>{
+  const {route, title} = props;
+  return(
+    <Link href={route}>
+      <a className='nav-link port-navbar-brand' > {title} </a>
+    </Link>
+  )
+}
+
 import {
   Collapse,
   Navbar,
@@ -61,10 +75,6 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
   NavbarText
 } from 'reactstrap';
 
@@ -75,36 +85,30 @@ const Example = (props) => {
 
   return (
     <div>
-      <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">reactstrap</NavbarBrand>
+      <Navbar className='port-navbar port-default absolute' color="transparent" dark expand="md">
+        <NavbarBrand className='port-navbar-brand' href="/">Rahat Hassan</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
-            <NavItem>
-              <NavLink href="/components/">Components</NavLink>
+          <Nav className="ml-auto" navbar>
+            <NavItem className='port-navbar-item'>
+              <BsNavLink route="/" title="Home"/>
             </NavItem>
-            <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+            <NavItem className='port-navbar-item'>
+              <BsNavLink route="/about" title="About"/>
             </NavItem>
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Options
-              </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem>
-                  Option 1
-                </DropdownItem>
-                <DropdownItem>
-                  Option 2
-                </DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>
-                  Reset
-                </DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
+            <NavItem className='port-navbar-item'>
+              <BsNavLink route="/portfolios" title="Portfolios"/>
+            </NavItem>
+            <NavItem className='port-navbar-item'>
+              <BsNavLink route="/blogs" title="Blogs"/>
+            </NavItem>
+            <NavItem className='port-navbar-item'>
+              <BsNavLink route="/cv" title="Cv"/>
+            </NavItem>
+
+
           </Nav>
-          <NavbarText>Simple Text</NavbarText>
+
         </Collapse>
       </Navbar>
     </div>
